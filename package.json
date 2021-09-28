@@ -1,0 +1,27 @@
+{
+  "name": "thatismyteam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.5",
+    "jest": "^27.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhilipPowers67/ThatIsMyTeam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PhilipPowers67/ThatIsMyTeam/issues"
+  },
+  "homepage": "https://github.com/PhilipPowers67/ThatIsMyTeam#readme"
+}
