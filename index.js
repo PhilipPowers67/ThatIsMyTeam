@@ -1,7 +1,9 @@
 const inquirer = require("inquirer");
-// const generateHtml = require('./src/page-template.js');
-// const inquirer = require('inquirer');
-// const fs = require('fs');
+const pageTemplate = require("./src/page-template.js");
+const {generateManager, generateEngineer, generateIntern} = require("./src/card");
+const fs = require('fs');
+const employeeCards = [];
+
 
 const manager = () => {
   return inquirer.prompt([
@@ -9,6 +11,7 @@ const manager = () => {
       type: "input",
       name: "name",
       message: "Who is the manager?",
+      //manager.name input to cards
     },
     {
       type: "input",
@@ -25,7 +28,12 @@ const manager = () => {
       name: "office",
       message: "What is their office number?",
     },
-  ]);
+  
+  ])
+  .then(managerData => {
+   var managerCard =  generateManager(managerData);
+   employeeCards.push(managerCard);
+  })
 };
 
 const promptEmployee = teamData => {
@@ -79,6 +87,7 @@ const promptEmployee = teamData => {
     }
   ])
   .then(employeeData => {
+    console.log(employeeData);
     teamData.employees.push(employeeData);
     if (employeeData.confirmAddEmployee) {
       return promptEmployee(teamData);
@@ -86,6 +95,8 @@ const promptEmployee = teamData => {
       return teamData;
     }
   })
+
 };
 
-manager().then(promptEmployee);
+manager()
+.then(promptEmployee);
