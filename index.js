@@ -39,7 +39,7 @@ const manager = () => {
     .then((managerData) => {
       const managerCard = generateManager(managerData);
       employeeCards.push(managerCard);
-      console.log(managerCard);
+      console.log(employeeCards);
     });
 };
 
@@ -98,12 +98,12 @@ const promptEmployee = () => {
       if (role === "Engineer") {
         engineerData = new Engineer(name, id, email, github);
         engineerCard = generateEngineer(engineerData);
-        employeeCards.push(engineerData);
+        employeeCards.push(engineerCard);
         console.log(engineerCard);
       } else if (role === "Intern") {
         internData = new Intern(name, id, email, school);
         internCard = generateIntern(internData);
-        employeeCards.push(internData);
+        employeeCards.push(internCard);
         console.log(internCard);
       }
 
@@ -115,5 +115,25 @@ const promptEmployee = () => {
     })
 };
 
+const writeFile = data => {
+  fs.writeFile('./dist/index.html', data, err => {
+    if(err) {
+      console.log(err);
+      return;
+    } else {
+      console.log('Your team page has been created!');
+    }
+  })
+}
+
 manager()
-.then(promptEmployee);
+.then(promptEmployee)
+.then(employeeCards => {
+  return pageTemplate(employeeCards);
+})
+.then(generateTeamPage => {
+  return writeFile(generateTeamPage);
+})
+.catch(err => {
+  console.log(err);
+});
