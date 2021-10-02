@@ -1,6 +1,5 @@
 const Manager = require('../lib/Manager.js');
-
-
+const Employee = require('../lib/Employee')
 test('creates an employee object', () => {
     const employee = new Employee('Philip', 569, 'phil.powers67@gmail.com');
 
@@ -29,11 +28,13 @@ test('gets email', () => {
 })
 
 test('gets role', () => {
-    const employee = new Employee ('Philip', 569, 'phil.powers67@gmail.com');
+    const manager = new Manager ('Philip', 569, 'phil.powers67@gmail.com');
 
-    expect(employee.getRole()).toBe("Employee");
+    expect(manager.getRole()).toBe("Manager");
 })
 
-test('get office number', () => {
-    const manager = new Manager ('Philip', 569, 'phil.powers67@gmail.com');
+test('gets manager office number', () => {
+    const manager = new Manager ('Philip', 569, 'phil.powers67@gmail.com', 5);
+
+    expect(manager.getOfficeNumber()).toEqual(expect.any(Number));
 })

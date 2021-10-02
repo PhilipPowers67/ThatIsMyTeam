@@ -1,3 +1,6 @@
+const card = require('../src/card');
+
+
 module.exports = generateHtml => {
 return `
 <!DOCTYPE html>
