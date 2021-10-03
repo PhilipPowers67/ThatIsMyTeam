@@ -1,57 +1,59 @@
+const Manager = require("../lib/Manager");
+
 function generateManager(Manager) {
-    return `
-    <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">${Manager.name}</h5>
-    <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-chalkboard-teacher"></i>Manager</h6>
-    <p class="card-text">
-        Employee ID: ${Manager.id}
+  return `
+
+  <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        ${Manager.name}
         <br>
-        Employee Office Number: ${Manager.office}
-    </p>
-    <a href="mailto:${Manager.email}" class="card-link">${Manager.email}</a>
-  </div>
-</div>
-    `
+        <i class="fas fa-chalkboard-teacher"></i>Manager
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Employee Id: ${Manager.id}</li>
+        <li class="list-group-item">Office Number: ${Manager.office}</li>
+        <a href="mailto:${Manager.email}" class="card-link">${Manager.email}</a>
+      </ul>
+  </div>    
+`;
 }
 
 function generateEngineer(engineer) {
-    return `
+  return `
     <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">${engineer.name}</h5>
-    <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-laptop-code"></i></i>Engineer</h6>
-    <p class="card-text">
-        Employee ID: ${engineer.id}
+      <div class="card-header">
+        ${engineer.name}
         <br>
-        Employee GitHub Account:<a href="https://github.com/${engineer.github}">${engineer.github}</a>
-        <br>
-        Email:<a href="mailto:${engineer.email}" class="card-link">${engineer.email}</a>
-    </p>
+        <i class="fas fa-laptop-code"></i>Engineer
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Employee Id: ${engineer.id}</li>
+        <li class="list-group-item">Github Account:<a href="https://github.com/${engineer.github}">${engineer.github}</a></li>
+        <a href="mailto:${engineer.email}" class="card-link">${engineer.email}</a>
+      </ul>
   </div>
-</div>
-    `
+      `;
 }
 
 function generateIntern(intern) {
-    return `
+  return `
     <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">${intern.name}</h5>
-    <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-graduation-cap"></i>Intern</h6>
-    <p class="card-text">
-        Employee ID: ${intern.id}
+      <div class="card-header">
+        ${intern.name}
         <br>
-        School Attending: ${intern.school}
-    </p>
-    <a href="mailto:${intern.email}" class="card-link">${intern.email}</a>
+        <i class="fas fa-graduation-cap"></i>Intern
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Employee Id: ${intern.id}</li>
+        <li class="list-group-item">School Attended: ${intern.school}</li>
+        <a href="mailto:${intern.email}" class="card-link">${intern.email}</a>
+      </ul>
   </div>
-</div>
-    `
+    `;
 }
 
 module.exports = {
-    generateManager,
-    generateEngineer,
-    generateIntern
+  generateManager,
+  generateEngineer,
+  generateIntern,
 };

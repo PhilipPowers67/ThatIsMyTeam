@@ -112,28 +112,28 @@ const promptEmployee = () => {
       } else {
         return employeeCards;
       }
-    })
+    });
 };
 
-const writeFile = data => {
-  fs.writeFile('./dist/index.html', data, err => {
-    if(err) {
+const writeFile = (data) => {
+  fs.writeFile("./dist/index.html", data, (err) => {
+    if (err) {
       console.log(err);
       return;
     } else {
-      console.log('Your team page has been created!');
+      console.log("Your team page has been created!");
     }
-  })
-}
+  });
+};
 
 manager()
-.then(promptEmployee)
-.then(employeeCards => {
-  return pageTemplate(employeeCards);
-})
-.then(generateTeamPage => {
-  return writeFile(generateTeamPage);
-})
-.catch(err => {
-  console.log(err);
-});
+  .then(promptEmployee)
+  .then((employeeCards) => {
+    return pageTemplate(employeeCards);
+  })
+  .then((generateTeamPage) => {
+    return writeFile(generateTeamPage);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
