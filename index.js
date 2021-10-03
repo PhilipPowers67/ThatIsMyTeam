@@ -39,7 +39,7 @@ const manager = () => {
     .then((managerData) => {
       const managerCard = generateManager(managerData);
       employeeCards.push(managerCard);
-      console.log(employeeCards);
+      // console.log(employeeCards);
     });
 };
 
@@ -99,12 +99,12 @@ const promptEmployee = () => {
         engineerData = new Engineer(name, id, email, github);
         engineerCard = generateEngineer(engineerData);
         employeeCards.push(engineerCard);
-        console.log(engineerCard);
+        // console.log(engineerCard);
       } else if (role === "Intern") {
         internData = new Intern(name, id, email, school);
         internCard = generateIntern(internData);
         employeeCards.push(internCard);
-        console.log(internCard);
+        // console.log(internCard);
       }
 
       if (confirmAddEmployee) {
